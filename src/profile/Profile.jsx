@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Profile = ({ fullName, bio, profession, handleName }) => {
+const Profile = (props) => {
   const handler = (e) => {
     e.preventDefault();
-    handleName(fullName);
+    props.handleName(props.fullName);
   };
   const styl = {
     textDecoration: "underline",
@@ -15,18 +15,20 @@ const Profile = ({ fullName, bio, profession, handleName }) => {
   const buttStyle = {
     padding: "1rem",
     color: "white",
-    backgroundColor: "#endregion4F5D75",
+    backgroundColor: "#4F5D75",
   };
   return (
     <div>
+      {/* {props.children} */}
+      <img style={{ width: "30%" }} src={props.children} alt="profile" />
       <h2>
-        <span style={styl}>Full Name:</span> {fullName}
+        <span style={styl}>Full Name:</span> {props.fullName}
       </h2>
       <p>
-        <span style={styl}>Biography</span> {bio}
+        <span style={styl}>Biography</span> {props.bio}
       </p>
       <p>
-        <span style={styl}>Profession:</span> {profession}
+        <span style={styl}>Profession:</span> {props.profession}
       </p>
       <button style={buttStyle} onClick={handler}>
         What's My Name!
